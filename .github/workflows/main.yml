@@ -21,7 +21,6 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
-          build-root-directory: app
       - name: Deploy
         if: github.ref == 'refs/heads/main'
         env:
