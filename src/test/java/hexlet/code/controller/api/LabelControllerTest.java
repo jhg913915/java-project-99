@@ -123,7 +123,7 @@ public final class LabelControllerTest {
     @Test
     public void testCreateWithNotValidName() throws Exception {
         LabelCreateDTO dto = new LabelCreateDTO();
-        dto.setName("aa");
+        dto.setName("a");
 
         MockHttpServletRequestBuilder request = post("/api/labels")
                 .with(jwt())

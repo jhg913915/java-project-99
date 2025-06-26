@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @AllArgsConstructor
-public class TaskSpecification {
+public final class TaskSpecification {
     private final LabelRepository labelRepository;
 
     public Specification<Task> build(TaskParamsDTO params) {

@@ -14,7 +14,7 @@ import hexlet.code.util.JWTUtils;
 @RestController
 @RequestMapping("/api")
 @AllArgsConstructor
-public class AuthenticationController {
+public final class AuthenticationController {
     private final JWTUtils jwtUtils;
 
     private final AuthenticationManager authenticationManager;
