@@ -5,6 +5,8 @@
 
 [![Code Coverage](https://qlty.sh/badges/bb2253e0-4507-45f7-ba5f-f62d789d2614/test_coverage.svg)](https://qlty.sh/gh/jhg913915/projects/java-project-99)
 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jhg913915_java-project-99&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=jhg913915_java-project-99)
+
 [![Java CI](https://github.com/jhg913915/java-project-99/actions/workflows/main.yml/badge.svg)](https://github.com/jhg913915/java-project-99/actions/workflows/main.yml)
 
 Данное приложение предназначено для управления задачами. Оно позволяет добавлять пользователей, назначать им задачи, обновлять статусы задач. В приложении реализована функция поиска по меткам и выборка по фильтрам.
