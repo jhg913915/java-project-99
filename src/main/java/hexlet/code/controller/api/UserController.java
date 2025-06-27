@@ -27,8 +27,8 @@ import java.util.List;
 @RequestMapping("/api/users")
 @AllArgsConstructor
 public class UserController {
-    private UserService userService;
-    private UserUtils userUtils;
+    private final UserService userService;
+    private final UserUtils userUtils;
 
     @GetMapping
     public ResponseEntity<List<UserShowDTO>> getAll() {
