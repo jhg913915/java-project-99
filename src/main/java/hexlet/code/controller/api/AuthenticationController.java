@@ -16,7 +16,6 @@ import hexlet.code.util.JWTUtils;
 @AllArgsConstructor
 public final class AuthenticationController {
     private final JWTUtils jwtUtils;
-
     private final AuthenticationManager authenticationManager;
 
     @PostMapping("/login")
