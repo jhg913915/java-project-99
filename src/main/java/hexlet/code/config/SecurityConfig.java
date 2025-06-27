@@ -30,9 +30,7 @@ import org.springframework.web.servlet.handler.HandlerMappingIntrospector;
 @AllArgsConstructor
 public class SecurityConfig {
     private final JwtDecoder jwtDecoder;
-
     private final PasswordEncoder passwordEncoder;
-
     private final UserService userService;
 
     @Bean
