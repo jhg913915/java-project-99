@@ -16,6 +16,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -37,4 +38,21 @@ public class Label implements BaseEntity {
 
     @CreatedDate
     private LocalDateTime createdAt;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Label label = (Label) o;
+        return Objects.equals(name, label.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
 }
