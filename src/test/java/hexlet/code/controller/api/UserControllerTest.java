@@ -78,13 +78,21 @@ public final class UserControllerTest {
     public void testGetAll() throws Exception {
         userRepository.save(testUser);
 
+        var expectedUsers = userRepository.findAll()
+                .stream()
+                .map(mapper::map)
+                .toList();
+
         MvcResult result = mockMvc.perform(get("/api/users").with(jwt()))
                 .andExpect(status().isOk())
                 .andReturn();
 
         String body = result.getResponse().getContentAsString();
-        assertThatJson(body).isArray();
+
+        String expectedJson = om.writeValueAsString(expectedUsers);
+        assertThatJson(body).isEqualTo(expectedJson);
     }
+
 
     @Test
     public void testGetById() throws Exception {
