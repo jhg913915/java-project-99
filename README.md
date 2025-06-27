@@ -11,6 +11,16 @@
 
 Данное приложение предназначено для управления задачами. Оно позволяет добавлять пользователей, назначать им задачи, обновлять статусы задач. В приложении реализована функция поиска по меткам и выборка по фильтрам.
 
-https://java-project-99-aygj.onrender.com
+Развернуть локально:
+    git clone https://github.com/jhg913915/java-project-99.git
+    cd java-project-99
+    ./gradlew bootRun 
+        OR 
+    make run
+Перейти по адресу: localhost:8080
 Login: hexlet@example.com
 Password: qwerty
+
+Пользоваться удалённо:
+https://java-project-99-aygj.onrender.com
+Логин и пароль тот же что и на локальной версии.
