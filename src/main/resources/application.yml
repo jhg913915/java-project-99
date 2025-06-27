@@ -16,3 +16,8 @@ spring:
   output:
     ansi:
       enabled: always
+
+sentry:
+  dsn: https://bee58457f65df08dedfa76fc41ad1654@o4509565353852929.ingest.us.sentry.io/4509566703108097
+  send-default-pii: true
+  exception-resolver-order: -2147483647
