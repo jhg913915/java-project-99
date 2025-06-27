@@ -19,11 +19,7 @@ git clone https://github.com/jhg913915/java-project-99.git
 cd java-project-99
 ```
 ```
-./gradlew bootRun 
-```
-ИЛИ
-```
-make run
+./gradlew bootRun //или: make run
 ```
 Перейти по адресу: localhost:8080
 Login: hexlet@example.com
