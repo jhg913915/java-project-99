@@ -13,6 +13,7 @@ import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -30,9 +31,12 @@ public final class UserService implements UserDetailsManager {
     }
 
     public UserShowDTO get(long id) {
-        return userMapper.map(
-                userRepository.findById(id)
-                        .orElseThrow(() -> new UsernameNotFoundException("User with id = " + id + " not found")));
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isEmpty()) {
+            throw new UsernameNotFoundException("User with id = " + id + " not found");
+        }
+        User user = userOptional.get();
+        return userMapper.map(user);
     }
 
     public UserShowDTO update(long id, UserUpdateDTO userUpdateDTO) {
