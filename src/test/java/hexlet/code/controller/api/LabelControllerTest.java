@@ -74,12 +74,19 @@ public final class LabelControllerTest {
     public void testGetAll() throws Exception {
         labelRepository.save(testLabel);
 
+        var expectedLabels = labelRepository.findAll()
+                .stream()
+                .map(mapper::map)
+                .toList();
+
         MvcResult result = mockMvc.perform(get("/api/labels").with(jwt()))
                 .andExpect(status().isOk())
                 .andReturn();
 
         String body = result.getResponse().getContentAsString();
-        assertThatJson(body).isArray();
+
+        String expectedJson = om.writeValueAsString(expectedLabels);
+        assertThatJson(body).isEqualTo(expectedJson);
     }
 
     @Test

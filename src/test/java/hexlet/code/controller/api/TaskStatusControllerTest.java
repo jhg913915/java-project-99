@@ -76,12 +76,19 @@ public final class TaskStatusControllerTest {
     public void testGetAll() throws Exception {
         statusRepository.save(testStatus);
 
+        var expectedStatuses = statusRepository.findAll()
+                .stream()
+                .map(mapper::map)
+                .toList();
+
         MvcResult result = mockMvc.perform(get("/api/task_statuses").with(jwt()))
                 .andExpect(status().isOk())
                 .andReturn();
 
         String body = result.getResponse().getContentAsString();
-        assertThatJson(body).isArray();
+
+        String expectedJson = om.writeValueAsString(expectedStatuses);
+        assertThatJson(body).isEqualTo(expectedJson);
     }
 
     @Test

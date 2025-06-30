@@ -110,12 +110,19 @@ public final class TaskControllerTest {
     public void testGetAll() throws Exception {
         taskRepository.save(testTask);
 
+        var expectedTasks = taskRepository.findAll()
+                .stream()
+                .map(mapper::map)
+                .toList();
+
         MvcResult result = mockMvc.perform(get("/api/tasks").with(jwt()))
                 .andExpect(status().isOk())
                 .andReturn();
 
         String body = result.getResponse().getContentAsString();
-        assertThatJson(body).isArray();
+
+        String expectedJson = om.writeValueAsString(expectedTasks);
+        assertThatJson(body).isEqualTo(expectedJson);
     }
 
     @Test
