@@ -13,6 +13,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @AllArgsConstructor
@@ -28,7 +29,8 @@ public final class TaskService {
     }
 
     public TaskShowDTO getById(long id) {
-        Task task = taskRepository.findById(id).orElseThrow();
+        Task task = taskRepository.findById(id)
+                .orElseThrow(() -> new NoSuchElementException("Task with id " + id + " not found"));
         return mapper.map(task);
     }
 
